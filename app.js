@@ -52,6 +52,7 @@ function startBreatheAnimation() {
 }
 
 function stopBreathAnimation() {
+    container.className = 'container';
     pointerContainer.style.animation = 'none';
     text.innerHTML = '';
     button.setAttribute('src', './img/ic_play_circle_outline_48px.svg');
