@@ -29,11 +29,9 @@ musicBtn.addEventListener('click', () => {
     if (!showSongs) {
         // Show songs
         buildSongsHTML(audioList);
-        audioContainer.style.opacity = '1';
     } else {
         // Hide songs
         removeSongsHTML();
-        audioContainer.style.opacity = '0';
     }
 });
 
@@ -74,6 +72,7 @@ function stopSong() {
 function buildSongsHTML(audioList) {
     showSongs = true;
     songs.style.minHeight = '40px';
+    audioContainer.style.opacity = '1';
     setTimeout(() => {
         audioList.forEach(audio => {
             songs.innerHTML += /*html */`
@@ -87,5 +86,6 @@ function removeSongsHTML() {
     showSongs = false;
     songs.innerHTML = '';
     songs.style.minHeight = '0';
+    audioContainer.style.opacity = '0';
     window.scrollTo(0, 0);
 }
