@@ -87,4 +87,5 @@ function removeSongsHTML() {
     showSongs = false;
     songs.innerHTML = '';
     songs.style.minHeight = '0';
+    window.scrollTo(0, 0);
 }
