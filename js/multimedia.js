@@ -87,5 +87,7 @@ function removeSongsHTML() {
     songs.innerHTML = '';
     songs.style.minHeight = '0';
     audioContainer.style.opacity = '0';
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
 }
