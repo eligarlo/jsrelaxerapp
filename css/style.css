@@ -127,8 +127,14 @@ header, main, footer {
 }
 
 .songs span {
+    font-weight: 600;
     margin: 10px auto 10px;
     cursor: pointer;
+}
+
+.audio-container {
+    opacity: 0;
+    transition: 0.3s ease-in-out;
 }
 
 audio {

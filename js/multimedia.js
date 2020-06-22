@@ -1,6 +1,7 @@
 const musicBtn = document.querySelector('.button.music');
 const songsContainer = document.querySelector('.songs-container');
 const songs = document.querySelector('.songs');
+const audioContainer = document.querySelector('.audio-container');
 const audio = document.querySelector('.audio');
 const audioSrc = document.querySelector('.audio > source');
 
@@ -28,9 +29,11 @@ musicBtn.addEventListener('click', () => {
     if (!showSongs) {
         // Show songs
         buildSongsHTML(audioList);
+        audioContainer.style.opacity = '1';
     } else {
         // Hide songs
         removeSongsHTML();
+        audioContainer.style.opacity = '0';
     }
 });
 
