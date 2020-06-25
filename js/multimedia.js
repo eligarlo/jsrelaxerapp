@@ -4,11 +4,18 @@ const songs = document.querySelector('.songs');
 const audioContainer = document.querySelector('.audio-container');
 const audio = document.querySelector('.audio');
 const audioSrc = document.querySelector('.audio > source');
+const audioContainerCssTransition = 300;
+let showSongs = false;
+let isSongPlaying = false;
 
 const audioList = [
     {
         name: 'Nature Sounds',
         src: './assets/audio/nature-sounds.mp3'
+    },
+    {
+        name: 'Our Future',
+        src: './assets/audio/our-future.mp3'
     },
     {
         name: 'Anti Stress',
@@ -17,14 +24,9 @@ const audioList = [
     {
         name: 'Memories',
         src: './assets/audio/memories.mp3'
-    },
-    {
-        name: 'Namaste',
-        src: './assets/audio/namaste.mp3'
     }
 ];
 
-let showSongs = false;
 musicBtn.addEventListener('click', () => {
     if (!showSongs) {
         // Show songs
@@ -44,10 +46,6 @@ songs.addEventListener('click', (e) => {
 function playAudio(url) {
     const currentAudioSrc = audioSrc.getAttribute('src');
 
-    if (url === 'noMusic') {
-        return stopSong();
-    }
-
     // First time is loaded
     if (currentAudioSrc === undefined) {
         playSong(url);
@@ -62,17 +60,22 @@ function playSong(url) {
     audioSrc.setAttribute('src', url);
     audio.load();
     audio.play();
+    isSongPlaying = true;
     removeSongsHTML();
 }
 
 function stopSong() {
     audio.pause();
+    isSongPlaying = false;
 }
 
 function buildSongsHTML(audioList) {
+    // Hide the audio controls if a song was playing
+    if (isSongPlaying) {
+        audioContainer.style.display = 'none';
+    }
     showSongs = true;
     songs.style.minHeight = '40px';
-    audioContainer.style.opacity = '1';
     setTimeout(() => {
         audioList.forEach(audio => {
             songs.innerHTML += /*html */`
@@ -83,11 +86,13 @@ function buildSongsHTML(audioList) {
 }
 
 function removeSongsHTML() {
+    // Show the audio controls if a song was playing
     showSongs = false;
     songs.innerHTML = '';
     songs.style.minHeight = '0';
-    audioContainer.style.opacity = '0';
     setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 100);
+        if (isSongPlaying) {
+            audioContainer.style.display = 'block';
+        }
+    }, audioContainerCssTransition);
 }

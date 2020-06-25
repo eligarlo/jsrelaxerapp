@@ -133,7 +133,7 @@ header, main, footer {
 }
 
 .audio-container {
-    opacity: 0;
+    display: none;
     transition: 0.3s ease-in-out;
 }
 
