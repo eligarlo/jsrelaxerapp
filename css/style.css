@@ -27,7 +27,7 @@ article {
 
 main {
     flex-grow: 1;
-    padding-top: 85px;
+    padding-top: 45px;
 }
 
 footer {
@@ -138,7 +138,6 @@ header, main, footer {
 }
 
 audio {
-
     height: 35px;
 }
 
@@ -193,6 +192,10 @@ audio {
 }
 
 @media only screen and (min-width: 1000px) {
+    main {
+        padding-top: 85px;
+    }
+
     .songs {
         width: 40vw;
         flex-direction: row;
