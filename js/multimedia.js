@@ -18,10 +18,6 @@ const audioList = [
         src: './assets/audio/our-future.mp3'
     },
     {
-        name: 'Anti Stress',
-        src: './assets/audio/anti-stress-music.mp3'
-    },
-    {
         name: 'Memories',
         src: './assets/audio/memories.mp3'
     }
